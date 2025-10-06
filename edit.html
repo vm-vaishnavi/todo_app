@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>✏️ Edit Task</h1>
+
+        <form method="POST">
+            <input type="text" name="content" value="{{ task.content }}" required>
+            <input type="date" name="deadline"
+                   value="{{ task.deadline.strftime('%Y-%m-%d') if task.deadline else '' }}">
+            <button type="submit">Save Changes</button>
+            <a href="{{ url_for('index') }}" class="cancel">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>
